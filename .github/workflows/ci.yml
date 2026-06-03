@@ -24,7 +24,7 @@ jobs:
 
       - name: Revisar calidad del codigo
         run: |
-          flake8 app tests --max-line-length=120
+          flake8 app test --max-line-length=120
 
   ci:
     runs-on: ubuntu-latest
