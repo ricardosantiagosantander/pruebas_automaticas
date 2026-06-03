@@ -1,5 +1,5 @@
 import pytest
-from app.calculos import sumar, dividir
+from app.calculos import sumar, dividir ,multiplicar
 
 
 def test_sumar():
@@ -13,3 +13,6 @@ def test_dividir():
 def test_dividir_para_cero():
     with pytest.raises(ValueError):
         dividir(10, 0)
+
+def test_miltiplciar():
+    assert multiplicar(2,2)==4
