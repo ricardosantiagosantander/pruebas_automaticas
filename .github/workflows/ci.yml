@@ -1,11 +1,11 @@
-name: CI Python
+name: CI CD Python
 
 on:
   push:
     branches: [ "main" ]
 
 jobs:
-  test:
+  ci:
     runs-on: ubuntu-latest
 
     steps:
@@ -21,9 +21,32 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-          pip install pytest
 
       - name: Ejecutar pruebas
         env:
           PYTHONPATH: ${{ github.workspace }}
         run: pytest -v
+
+  cd:
+    runs-on: ubuntu-latest
+    needs: ci
+
+    steps:
+      - name: Descargar codigo
+        uses: actions/checkout@v4
+
+      - name: Crear carpeta de entrega
+        run: |
+          mkdir entrega
+          cp -r app entrega/
+          cp requirements.txt entrega/
+          cp README.md entrega/ || true
+
+      - name: Comprimir proyecto
+        run: zip -r proyecto_python.zip entrega
+
+      - name: Subir artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: proyecto-python
+          path: proyecto_python.zip
