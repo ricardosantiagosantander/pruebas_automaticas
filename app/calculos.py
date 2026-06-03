@@ -5,4 +5,4 @@ def dividir(a, b):
         raise ValueError("No se puede dividir para cero")
     return a / b
 def multiplicar(a, b):
-    return a*b
+    return a * b
