@@ -15,4 +15,4 @@ def test_dividir_para_cero():
         dividir(10, 0)
 
 def test_miltiplciar():
-    assert multiplicar(2,2)==5
+    assert multiplicar(2,10)==20
