@@ -16,6 +16,6 @@ def test_transformar_ventas():
     assert "total_sales" in resultado.columns
     assert "total_profit" in resultado.columns
 
-    assert list(resultado["unit_profit"]) == [3, 8, 5]
+    assert list(resultado["unit_profit"]) == [4, 8, 5]
     assert list(resultado["total_sales"]) == [20, 60, 60]
     assert list(resultado["total_profit"]) == [8, 24, 20]
