@@ -1,4 +1,6 @@
 import pandas as pd
+
+
 def transformar_ventas(df: pd.DataFrame) -> pd.DataFrame:
     df = df.copy()
 

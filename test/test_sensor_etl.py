@@ -18,6 +18,7 @@ def test_limpiar_datos_sensor_columnas():
     assert "humidity" in resultado.columns
     assert "temperature_f" in resultado.columns
 
+
 def test_limpiar_datos_sensor_rangos_validos():
     df = pd.DataFrame({
         "sensor_id": ["S1", "S2", "S3"],
@@ -50,6 +51,7 @@ def test_limpiar_datos_sensor_humedad_valida():
     resultado = limpiar_datos_sensor(df)
 
     assert resultado["humidity"].between(0, 100).all()
+
 
 def test_limpiar_datos_sensor_elimina_nulos():
     df = pd.DataFrame({
